@@ -1,55 +1,121 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.net.*" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>KK FUNDA Home Page</title>
-<link href="images/kkfunda.jpg" rel="icon">
-</head>
+    <meta charset="UTF-8">
+    <title>KK FUNDA | DevOps Portal</title>
+    <link href="images/kkfunda.jpg" rel="icon">
+    <style>
+        /* Material-inspired color palette */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #1976d2;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin: 10px 0;
+        }
+
+        section {
+            background-color: #ffffff;
+            margin: 30px auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-block {
+            background-color: #e3f2fd;
+            padding: 15px;
+            margin-top: 10px;
+            border-left: 5px solid #1976d2;
+        }
+
+        .contact {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact img {
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+
+        a {
+            color: #0d47a1;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #eeeeee;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
-<body style="background-color: #eaffea;">
-<h1 align="center">Welcome to the world of Devops</h1>
-<h1 align="center">Today is Beautiful</h1>
-<hr>
-<br>
-	<h1><h3> Server Side IP Address </h3><br>
 
-<% 
-String ip = "";
-InetAddress inetAddress = InetAddress.getLocalHost();
-ip = inetAddress.getHostAddress();
-out.println("Server Host Name :: "+inetAddress.getHostName()); 
-%>
-<br>
-<%out.println("Server IP Address :: "+ip);%>
-</h1>
-<br>
-<h1><h3> Client Side IP Address </h3><br>
-<%out.print( "Client IP Address :: " + request.getRemoteAddr() ); %><br>
-<%out.print( "Client Name Host :: "+ request.getRemoteHost() );%><br></h1>
-<hr>
-<div style="text-align: center;">
-	<span>
-		<img src="images/kkfunda.jpg" alt="" width="100">
-	</span>
-	<span style="font-weight: bold;">
-		KK FUNDA, 
-		Martha Halli, Banglore,
-		Bangalore,
-		+91-9676831734,+91-9676831734
-		kkeducationblr@gmail.com
-		<br>
-		<a href="mailto:kkeducation@gmail.com">Mail to KK FUNDA</a>
-	</span>
-</div>
-<hr>
-	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
-<hr>
-<hr>
-<p align=center>KK FUNDA Training, Development Center.</p>
-<p align=center><small>Copyrights 2025 by <a href="google.com/">KK FUNDA</a> </small></p>
+<header>
+    <h1>Welcome to KK DevOps</h1>
+    <h2>KK FUNDA - Hyderabad</h2>
+</header>
+
+<section>
+    <h3>Server Information</h3>
+    <div class="info-block">
+        <% 
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            String ip = inetAddress.getHostAddress();
+            out.println("<strong>Server Host Name:</strong> " + inetAddress.getHostName() + "<br>");
+            out.println("<strong>Server IP Address:</strong> " + ip + "<br>");
+        %>
+    </div>
+
+    <h3>Client Information</h3>
+    <div class="info-block">
+        <% 
+            out.print("<strong>Client IP Address:</strong> " + request.getRemoteAddr() + "<br>");
+            out.print("<strong>Client Host Name:</strong> " + request.getRemoteHost());
+        %>
+    </div>
+</section>
+
+<section class="contact">
+    <img src="images/kkfunda.jpg" alt="KK FUNDA Logo" width="100">
+    <p style="font-weight: bold;">
+        KK FUNDA<br>
+        Martha Halli, Bangalore<br>
+        +91-9676831734<br>
+        <a href="mailto:kkeducationblr@gmail.com">kkeducationblr@gmail.com</a><br>
+        <a href="mailto:kkeducation@gmail.com">Mail to KK FUNDA</a>
+    </p>
+</section>
+
+<section>
+    <h3>Services</h3>
+    <p>Service: <a href="services/employee/getEmployeeDetails">Get Employee Details</a></p>
+</section>
+
+<footer>
+    <p>KK FUNDA Training & Development Center</p>
+    <p>&copy; 2025 by <a href="https://www.google.com/">KK FUNDA</a></p>
+</footer>
 
 </body>
 </html>
