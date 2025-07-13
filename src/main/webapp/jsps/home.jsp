@@ -9,6 +9,7 @@
 </head>
 </head>
 <body>
+<body style="background-color: lightblue;">
 <h1 align="center">Welcome to the world of Devops</h1>
 <h1 align="center"> This is DHK from Hyderabad </h1>
 <hr>
